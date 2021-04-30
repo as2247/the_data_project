@@ -1,3 +1,5 @@
+import csv
+
 """
 TUI is short for Text-User Interface. This module is responsible for communicating with the user.
 The functions in this module will display information to the user and/or retrieve a response from the user.
@@ -17,28 +19,31 @@ def welcome():
 
 
 def main_menu():
-    print("Please select an option")
-    print("[1] Load Movies")
-    print("[2] Process Movies")
-    print("[3] Query Movies")
-    print("[4] Visualise Movies")
-    print("[5] Exit")
+    print(""" Please select an option:
+    [1] Load Movies
+    [2] Process Movies
+    [3] Query Movies
+    [4] Visualise Movies
+    [5] Exit
+    """)
     selected_option = int(input())
-    print(f"You have selected option {selected_option}")
-
-    return selected_option
+    if 0 < selected_option < 6:
+        print(f"You have selected option {selected_option}")  # Test return value is an integer
+        return selected_option
+    else:
+        print("ERROR: Please select a valid option ")
 
 
 def data_file_path():
-    """
-    Task 3: Retrieve a file path to the source data file.
+    file_path = input("Please enter a file path")
+    suffix = '.csv"'
 
-    The function should prompt the user to enter the file path for a data file (e.g. "data/movies.csv").
-    The file path must end in ".csv".
+    if file_path.endswith(suffix):
+        print(f"File Path: {file_path}")
+        return file_path
+    else:
+        print("Error! Please enter a valid csv file path (.csv)")
 
-    :return: a file path to a CSV file
-    """
-    # TODO: Your code here
 
 
 """
@@ -317,8 +322,9 @@ def visual_menu():
 
 
 def run():
-    welcome()
-    main_menu()
+    # welcome()
+    # main_menu()
+    data_file_path()
 
 
 if __name__ == "__main__":
