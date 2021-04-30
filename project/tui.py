@@ -17,23 +17,16 @@ def welcome():
 
 
 def main_menu():
-    """
-    Task 2: Display a menu of options and read the user's response.
+    print("Please select an option")
+    print("[1] Load Movies")
+    print("[2] Process Movies")
+    print("[3] Query Movies")
+    print("[4] Visualise Movies")
+    print("[5] Exit")
+    selected_option = int(input())
+    print(f"You have selected option {selected_option}")
 
-    A menu consisting of the following options should be displayed:
-
-    [1] Load Movies
-    [2] Process Movies
-    [3] Query Movies
-    [4] Visualise Movies
-    [5] Exit
-
-    The user's response should be read in and returned as an integer corresponding to the selected option.
-    For example, 1 for 'Load Movies', 2 for 'Process Movies' and so on.
-
-    :return: an integer corresponding to a valid selection
-    """
-    # TODO: Your code here
+    return selected_option
 
 
 def data_file_path():
@@ -323,4 +316,10 @@ def visual_menu():
     # TODO: Your code here
 
 
-welcome()
+def run():
+    welcome()
+    main_menu()
+
+
+if __name__ == "__main__":
+    run()
